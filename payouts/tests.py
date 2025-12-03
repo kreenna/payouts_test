@@ -17,7 +17,7 @@ class PayoutRequestViewSetTests(APITestCase):
             currency="USD",
             recipient_info="recipient@example.com",
             status="pending",
-            description="Initial payout"
+            description="Initial payout",
         )
         self.list_url = reverse("payouts:payout-list")
         self.detail_url = reverse("payouts:payout-detail", args=[self.payout.id])
@@ -42,7 +42,7 @@ class PayoutRequestViewSetTests(APITestCase):
             "amount": "123.45",
             "currency": "EUR",
             "recipient_info": "newrecipient@example.com",
-            "description": "Test payout create"
+            "description": "Test payout create",
         }
         response = self.client.post(self.list_url, data, format="json")
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
@@ -65,22 +65,14 @@ class PayoutRequestViewSetTests(APITestCase):
 
     def test_create_invalid_amount(self):
         """Тест создания с некорректной суммой."""
-        data = {
-            "amount": "-1.0",
-            "currency": "USD",
-            "recipient_info": "abc"
-        }
+        data = {"amount": "-1.0", "currency": "USD", "recipient_info": "abc"}
         response = self.client.post(self.list_url, data, format="json")
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertIn("amount", response.data)
 
     def test_create_invalid_currency(self):
         """Тест создания с некорректной валютой."""
-        data = {
-            "amount": "10.0",
-            "currency": "US",
-            "recipient_info": "abc"
-        }
+        data = {"amount": "10.0", "currency": "US", "recipient_info": "abc"}
         response = self.client.post(self.list_url, data, format="json")
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertIn("currency", response.data)

@@ -3,6 +3,7 @@ from django.db import models
 
 class PayoutRequest(models.Model):
     """Модель заявки на выплату с полями суммы выплаты, вылюты, реквизитов, статуса и описания."""
+
     STATUS_CHOICES = [
         ("pending", "Pending"),
         ("processing", "Processing"),
