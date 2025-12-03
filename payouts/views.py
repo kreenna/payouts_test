@@ -6,7 +6,7 @@ from .tasks import process_payout_request
 
 
 class PayoutRequestViewSet(viewsets.ModelViewSet):
-    """Вьюсет для заявок на оплату."""
+    """Управление заявками на выплату средств."""
 
     queryset = PayoutRequest.objects.all()
     serializer_class = PayoutRequestSerializer
