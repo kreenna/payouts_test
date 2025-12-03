@@ -11,13 +11,13 @@ class PayoutRequestSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     @staticmethod
-    def validate_amount(value):
+    def validate_amount(value: float) -> float:
         if value <= 0:
             raise serializers.ValidationError("Сумма должна быть больше 0.")
         return value
 
     @staticmethod
-    def validate_currency(value):
+    def validate_currency(value: str) -> str:
         if len(value) != 3:
             raise serializers.ValidationError("Валюта должна быть представлена кодом из трёх символов (RUB и др.)")
         return value.upper()

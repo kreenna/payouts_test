@@ -10,6 +10,6 @@ class PayoutRequestViewSet(viewsets.ModelViewSet):
     queryset = PayoutRequest.objects.all()
     serializer_class = PayoutRequestSerializer
 
-    def perform_create(self, serializer):
+    def perform_create(self, serializer) -> None:
         instance = serializer.save()
         process_payout_request.delay(instance.id)
