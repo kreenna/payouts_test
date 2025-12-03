@@ -24,8 +24,8 @@
 
 1. Клонировать репозиторий
 ```
-git clone <URL_ВАШЕГО_РЕПОЗИТОРИЯ> payout-service
-cd payout-service
+git clone https://github.com/kreenna/payouts_test
+cd payouts_test
 ```
 
 2. Создать и активировать виртуальное окружение
