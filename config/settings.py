@@ -10,6 +10,7 @@ SECRET_KEY = "django-insecure-6$@vtz8zk!8smz6*k=_!kn2rr%z@0q_e7bf8k-l=w2inc6jfk9
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = os.getenv("DJANGO_CSRF_TRUSTED_ORIGINS", "http://localhost").split(",")
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -102,7 +103,7 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = "/var/www/static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
