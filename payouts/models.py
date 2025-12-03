@@ -18,3 +18,9 @@ class PayoutRequest(models.Model):
     description = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        """Отображение в админке."""
+
+        verbose_name = "Заявка на выплату"
+        verbose_name_plural = "Заявки на выплату"
