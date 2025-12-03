@@ -7,7 +7,7 @@ from .views import PayoutRequestViewSet
 app_name = PayoutsConfig.name
 
 router = DefaultRouter()
-router.register(r"api/payouts", PayoutRequestViewSet, basename="payout")
+router.register(r"", PayoutRequestViewSet, basename="payout")
 
 urlpatterns = [
     path("", include(router.urls)),
