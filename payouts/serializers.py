@@ -19,5 +19,5 @@ class PayoutRequestSerializer(serializers.ModelSerializer):
     @staticmethod
     def validate_currency(value):
         if len(value) != 3:
-            raise serializers.ValidationError("Валюта должна быть представлена кодом из трёх символов (RUB, USD и др.)")
+            raise serializers.ValidationError("Валюта должна быть представлена кодом из трёх символов (RUB и др.)")
         return value.upper()
